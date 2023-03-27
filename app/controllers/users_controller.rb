@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show update destroy ]
-
+  
   # GET /users
   def index
     @users = User.all
@@ -15,9 +15,10 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
+    @user = User.create!(user_params)
 
-    if @user.save
+    if @user.valid?
+      # session[:user_id] = @user.id
       render json: @user, status: :created, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   def destroy
     @user.destroy
+    head :no_content
   end
 
   private

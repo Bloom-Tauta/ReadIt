@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   # POST /articles
   def create
-    @article = Article.new(article_params)
+    @article = Article.create(article_params)
 
     if @article.save
       render json: @article, status: :created, location: @article
@@ -36,6 +36,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   def destroy
     @article.destroy
+    head :no_content
   end
 
   private
