@@ -66,6 +66,7 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    bcrypt (3.1.18)
     builder (3.2.4)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
@@ -81,6 +82,7 @@ GEM
     io-console (0.6.0)
     irb (1.6.3)
       reline (>= 0.3.0)
+    jwt (2.7.0)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -105,9 +107,10 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
-    pg (1.4.6)
     puma (5.6.5)
       nio4r (~> 2.0)
+    pundit (2.3.0)
+      activesupport (>= 3.0.0)
     racc (1.6.2)
     rack (2.2.6.4)
     rack-test (2.1.0)
@@ -141,6 +144,7 @@ GEM
     rake (13.0.6)
     reline (0.3.2)
       io-console (~> 0.5)
+    sqlite3 (1.6.1-x86_64-linux)
     thor (1.2.1)
     timeout (0.3.2)
     tzinfo (2.0.6)
@@ -154,14 +158,17 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt
   debug
-  pg (~> 1.1)
+  jwt
   puma (~> 5.0)
+  pundit
   rails (~> 7.0.4, >= 7.0.4.3)
+  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.4.9
+   2.4.7
