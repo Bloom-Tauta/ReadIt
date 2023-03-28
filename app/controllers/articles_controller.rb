@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1
   def show
-    render json: @article
+    render json: set_article, status: :ok
   end
 
   # POST /articles
