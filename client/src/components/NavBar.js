@@ -1,4 +1,3 @@
-
 import {NavLink} from "react-router-dom";
 
 function NavBar(){
@@ -8,7 +7,9 @@ function NavBar(){
            <NavLink to="/about">About</NavLink>
            <NavLink to="/logIn">LogIn</NavLink>
            <NavLink to="/signUp">SignUp</NavLink>
-           <NavLink to="/logout">LogOut</NavLink>
+            <NavLink to="/logout">LogOut</NavLink>
+            <NavLink to="/new-article">New Article</NavLink>
+
            
         </div>
     )

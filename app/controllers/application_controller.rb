@@ -34,6 +34,8 @@ class ApplicationController < ActionController::API
           @user = User.find_by(id: user_id)
         end
     end
+
+    
     
     def logged_in?
         !!current_user
