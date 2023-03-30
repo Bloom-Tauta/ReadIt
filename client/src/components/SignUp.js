@@ -5,7 +5,6 @@ function SignUp(){
             <label  className="form-label">Username</label>
             <input type="text" className="form-control px-3 py-1" id="idInput" placeholder="Enter your username"/>
             
-
             <label  className="form-label">Password</label>
             <input type="password" className="form-control px-3 py-1" id="nameInput" placeholder="Enter your password"/>
 
