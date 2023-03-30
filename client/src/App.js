@@ -7,8 +7,9 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import ArticleDetails from './components/ArticleDetails';
 import Footer from './components/Footer';
+import NewArticle from './components/NewArticle';
+import EditArticle from './components/EditArticle'; 
 
-// import bg_image from './components/image/background.jpg'
 import LogOut from './components/LogOut';
 
 function App() {
@@ -25,7 +26,9 @@ function App() {
           <Route path='/about' element={<About/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<SignUp />} />
-          <Route path='/article/:id' element={< ArticleDetails/> } />
+          <Route path='/articles/:id' element={< ArticleDetails />} />
+          <Route path='/article/:id/edit' element={<EditArticle />} />
+          <Route path="/new-article" element={<NewArticle />} />
         </Routes> 
 
         <Footer/>

@@ -22,9 +22,11 @@ function Article({ articles }) {
                   <ReactMarkdown>{shortDescription}</ReactMarkdown>
                   <small>
                     <p>By: {item.user.username}</p>
+                    <p>Category {item.category.content}</p>
+
                   </small>
                 </div>
-                <button className="article-button "><Link to={`/article/${item.id}`}>see more...</Link></button>
+                <button className="article-button "><Link to={`/articles/${item.id}`}>see more...</Link></button>
               </div>
             );
           })}

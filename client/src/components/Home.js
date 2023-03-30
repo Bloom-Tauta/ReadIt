@@ -23,7 +23,7 @@ function Home() {
             <div className='home-header'>
                 <h2>ReadIt</h2>
                 <p>
-                    Discover, learn and educate <br /> let us share our expiriences and thoughts together!
+                    Discover, learn and be educated <br /> Let us share our experiences and thoughts together!
                 </p>
             </div>
             <Search /> 
