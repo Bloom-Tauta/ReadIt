@@ -17,8 +17,6 @@ function Home() {
                 setFilteredArticles(articles);
         })
     },[])
-    
-
 
     return (
         <div >

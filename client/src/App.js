@@ -18,8 +18,6 @@ function App() {
       {/* <img src={bg_image} alt="loading..." className=''/> */}
       {/* <div className='maincontainer absolute top-0 left-0 right-0 bottom-0 border border-black border-3'> */}
       <div>
-      
-
         <NavBar />
         <Routes>
           <Route path='/' exact element={<Home/>}/>

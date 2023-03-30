@@ -24,10 +24,11 @@ function Article({ articles }) {
                     <p>By: {item.user.username}</p>
                   </small>
                 </div>
-                <button className="article-button"><Link to={item.id}>see more...</Link></button>
+                <button className="article-button"><Link to={`/article/${item.id}`}>see more...</Link></button>
               </div>
             );
           })}
+
         </div>
       </div>
     </div>

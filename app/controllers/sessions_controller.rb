@@ -21,6 +21,10 @@ class SessionsController < ApplicationController
         render json: @user.errors, status: :unprocessable_entity
       end
     end
+
+    def logout
+      
+    end
   
     private
   
