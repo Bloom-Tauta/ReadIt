@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   post '/login', to: 'sessions#login'
   post '/signup', to: 'sessions#signup'
+  delete '/logout', to: 'sessions#logout'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

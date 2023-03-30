@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
-    # before_action :authorized
+    before_action :authorized
 
     wrap_parameters format: []
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_response
@@ -8,8 +8,7 @@ class ApplicationController < ActionController::API
 
 
     def encode_token(payload)
-        # should store secret in env variable
-        JWT.encode(payload, 'my_s3cr3t')
+      JWT.encode(payload, Rails.application.secrets.secret_key_base)
     end
     
     def auth_header
@@ -22,7 +21,7 @@ class ApplicationController < ActionController::API
           token = auth_header.split(' ')[1]
           # header: { 'Authorization': 'Bearer <token>' }
           begin
-            JWT.decode(token, 'my_s3cr3t', true, algorithm: 'HS256')
+            decoded_token = JWT.decode(token, Rails.application.secrets.secret_key_base, true, algorithm: 'HS256')
           rescue JWT::DecodeError
             nil
           end
@@ -39,6 +38,8 @@ class ApplicationController < ActionController::API
     def logged_in?
         !!current_user
     end
+
+    
     
     def authorized
         render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
