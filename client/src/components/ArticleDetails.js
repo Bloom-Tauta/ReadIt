@@ -74,7 +74,7 @@ function ArticleDetails() {
           <h1>{article.genre}</h1>
         </header>
         <img src={article.img_url} alt={article.name} />
-              <p>Rating: {article.rating}</p>
+        <p>Rating: {article.rating}</p>
         <button onClick={() => handleDelete(article.id)}>Delete</button>
               <button onClick={() => navigate(`/article/${article.id}/edit`)}>Edit</button>
       </div>
