@@ -1,7 +1,8 @@
 
 
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate} from 'react-router-dom';
+
 
 function ArticleDetails() {
   const { id } = useParams();
@@ -13,6 +14,8 @@ function ArticleDetails() {
     user: "",
     reviews: ""
   });
+    
+    const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`/articles/${id}`)
@@ -71,27 +74,9 @@ function ArticleDetails() {
           <h1>{article.genre}</h1>
         </header>
         <img src={article.img_url} alt={article.name} />
-        <p>Rating: {article.rating}</p>
+              <p>Rating: {article.rating}</p>
         <button onClick={() => handleDelete(article.id)}>Delete</button>
-        <button onClick={() => handleUpdate(article.id)}>Update</button>
-        <form>
-          <label>
-            Name:
-            <input type="text" name="name" value={article.name} onChange={handleChange} />
-          </label>
-          <label>
-            Genre:
-            <input type="text" name="genre" value={article.genre} onChange={handleChange} />
-          </label>
-          <label>
-            Rating:
-            <input type="text" name="rating" value={article.rating} onChange={handleChange} />
-          </label>
-          <label>
-            Image URL:
-            <input type="text" name="img_url" value={article.img_url} onChange={handleChange} />
-          </label>
-        </form>
+              <button onClick={() => navigate(`/article/${article.id}/edit`)}>Edit</button>
       </div>
     </div>
   )
