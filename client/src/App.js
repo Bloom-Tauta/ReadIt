@@ -6,6 +6,7 @@ import About from './components/About';
 import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import Footer from './components/Footer';
 
 import bg_image from './components/image/background.jpg'
 import LogOut from './components/LogOut';
@@ -23,6 +24,7 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<SignUp/>}/>
         </Routes>
+        <Footer/>
       </div>
     </div>
   );
