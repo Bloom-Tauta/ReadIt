@@ -1,3 +1,17 @@
 .footer {
-    background-color: #FDC32F;
+    background-color: #ddaf3a;
+    margin-top: 40%;
+}
+
+.copyright_bg{
+    color:rgb(63, 63, 63);
+    background-color: rgb(202, 162, 74);
+}
+/* #FDC32F */
+.section__padding {
+    padding: 4rem 4rem;
+}
+
+.footer_anchor {
+    color: black;
 }

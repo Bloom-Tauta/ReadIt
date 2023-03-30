@@ -14,7 +14,7 @@ import LogOut from './components/LogOut';
 function App() {
   return (
 
-    <div className="AppContainer">
+    <div className="AppContainer min-h-full">
       {/* className="AppContainer" */}
       {/* <img src={bg_image} alt="loading..." className=''/> */}
       {/* <div className='maincontainer absolute top-0 left-0 right-0 bottom-0 border border-black border-3'> */}
