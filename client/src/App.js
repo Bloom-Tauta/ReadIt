@@ -5,11 +5,8 @@ import About from './components/About';
 import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-<<<<<<< HEAD
-import Footer from './components/Footer';
-=======
 import ArticleDetails from './components/ArticleDetails';
->>>>>>> 7a7fcdd454467f39a1a66f30968346f65561cfba
+import Footer from './components/Footer';
 
 // import bg_image from './components/image/background.jpg'
 import LogOut from './components/LogOut';
@@ -27,10 +24,12 @@ function App() {
           <Route path='/' exact element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/login' element={<Login/>}/>
-          <Route path='/signup' element={<SignUp/>}/>
+          <Route path='/signup' element={<SignUp />} />
           <Route path='/article/:id' element={< ArticleDetails/> } />
-        </Routes>
-        <Footer/> 
+        </Routes> 
+
+        <Footer/>
+           
       </div>
     </div>
 
