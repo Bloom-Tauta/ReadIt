@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :articles
   resources :users
 
-  post '/login', to: 'sessions#login'
-  post '/signup', to: 'sessions#signup'
+  post '/login', to: 'auth#create'
+  post '/auto_login', to: 'auth#auto_login'
+  get '/logged_in', to: 'application#logged_in?'
   delete '/logout', to: 'sessions#logout'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
