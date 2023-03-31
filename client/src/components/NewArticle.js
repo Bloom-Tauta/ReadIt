@@ -144,6 +144,7 @@
 
 
 import React, { useState, useEffect } from 'react';
+import './newarticle.css';
 
 function NewArticle() {
   const [categories, setCategories] = useState([]);
