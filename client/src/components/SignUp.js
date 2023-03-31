@@ -1,17 +1,75 @@
-function SignUp(){
-    return(
-        <div>
-            <form className="flex flex-colflex flex-col bg-sky-200 p-5 max-w-xl mx-auto">
-            <label  className="form-label">Username</label>
-            <input type="text" className="form-control px-3 py-1" id="idInput" placeholder="Enter your username"/>
-            
-            <label  className="form-label">Password</label>
-            <input type="password" className="form-control px-3 py-1" id="nameInput" placeholder="Enter your password"/>
+import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
-            <label  className="form-label">Confirm Password</label>
-            <input type="password" className="form-control px-3 py-1" id="nameInput" placeholder="Confirm your password"/>
-            <button className="bg-gray-700 w-max mx-auto py-2 px-4 my-2">SignUp</button>
-            </form>
+export default function Signup() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [created, setCreated] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  function createUser(event) {
+    event.preventDefault();
+    event.target.reset();
+
+    let user = {
+      username,
+      password,
+    };
+
+    fetch('/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({ user }),
+    })
+      .then((r) => r.json())
+      .then((response) => {
+        if (response.status === 'created') {
+          setCreated(true);
+          setErrorMessage('');
+        }
+      })
+      .catch((response) =>
+        setErrorMessage(
+          "Uh...Make sure your server is running!"
+        )
+      );
+  }
+
+  return (
+    <div>
+      {created ? (
+        <Navigate to="/login" />
+      ) : (
+        <div>
+          <div className="please-log-in">
+            <p>{errorMessage}</p>
+          </div>
+          <br />
+          <form onSubmit={createUser}>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <br />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <br />
+            <br />
+            <button type="submit">SubmitS</button>
+          </form>
         </div>
-    )
-} export default SignUp;
+      )}
+      <br />
+      <br />
+    </div>
+  );
+}
