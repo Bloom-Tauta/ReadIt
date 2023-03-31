@@ -9,7 +9,7 @@ import ArticleDetails from './components/ArticleDetails';
 import Footer from './components/Footer';
 import NewArticle from './components/NewArticle';
 import EditArticle from './components/EditArticle'; 
-import Review from './components/Review';
+// import Review from './components/Review';
 
 import LogOut from './components/LogOut';
 
