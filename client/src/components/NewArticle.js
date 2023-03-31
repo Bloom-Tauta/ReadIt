@@ -144,6 +144,7 @@
 
 
 import React, { useState, useEffect } from 'react';
+import './newarticle.css';
 
 function NewArticle() {
   const [categories, setCategories] = useState([]);
@@ -213,7 +214,7 @@ function NewArticle() {
     <h1>New Article</h1>
     <form onSubmit={handleSubmit}>
     <div>
-    <label htmlFor="name">Name:</label>
+    <label htmlFor="name">Title:</label>
     <input
              type="text"
              id="name"
@@ -223,7 +224,7 @@ function NewArticle() {
            />
     </div>
     <div>
-    <label htmlFor="genre">Genre:</label>
+    <label htmlFor="genre">Editorial:</label>
     <input
              type="text"
              id="genre"
