@@ -26,7 +26,7 @@ function SignUp(){
         setPassword('');
         setErrorMessage('');
         localStorage.setItem('token', data.token);
-        //window.location.href = '/home';
+        window.location.href = '/home';
       }
     })
     .catch(error => console.error(error));

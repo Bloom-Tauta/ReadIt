@@ -1,22 +1,36 @@
+require 'jwt'
 class SessionsController < ApplicationController
     # app/controllers/authentication_controller.rb
-     skip_before_action :authorized, only:[:login,:signup]
-    def login
-      # if logged_in?
-      #   render json: { error: 'You are already logged in' }
-      #   return
-      # end
+     #skip_before_action :authorized, only:[:login,:signup]
+     #skip_before_action :set_article, only:[:login,:signup]
+    # def login
+    #   # if logged_in?
+    #   #   render json: { error: 'You are already logged in' }
+    #   #   return
+    #   # end
       
-      @user = User.find_by(username: params[:username])
+    #   @user = User.find_by(username: params[:username])
     
-      if @user&.authenticate(params[:password])
-        token = encode_token(user_id: @user.id)
-        render json: { user: @user.as_json(only: [:id, :username]), token: token }
+    #   if @user&.authenticate(params[:password])
+    #     token = encode_token(user_id: @user.id)
+    #     render json: { user: @user.as_json(only: [:id, :username]), token: token }
 
+    #   else
+    #     render json: { error: 'Invalid username or password' }, status: :unauthorized
+    #   end
+    # end
+
+    def login
+      user = User.find_by(username: params[:username])
+      if user && user.authenticate(params[:password])
+        payload = {user_id: user.id}
+        token = JWT.encode payload, Rails.application.secret_key_base, 'HS256'
+        render json: {status: :created, loggedin: true, token: token, user: user}
       else
-        render json: { error: 'Invalid username or password' }, status: :unauthorized
+        render json: {errors: ["Wrong username or password"]}, status: :unauthorized
       end
     end
+
     
     def signup
       @user = User.new(user_params)
@@ -44,20 +58,20 @@ class SessionsController < ApplicationController
     # end
     
     
-    def logout
-      token = request.headers['Authorization']&.split(' ')&.last
-      if token
-        user = User.find_by(token: token)
-        if user
-          user.update(token: nil)
-          render json: { message: 'You have been logged out' }
-        else
-          render json: { error: 'Invalid token' }, status: :unauthorized
-        end
-      else
-        render json: { error: 'Token not found' }, status: :bad_request
-      end
-    end
+    # def logout
+    #   token = request.headers['Authorization']&.split(' ')&.last
+    #   if token
+    #     user = User.find_by(token: token)
+    #     if user
+    #       user.update(token: nil)
+    #       render json: { message: 'You have been logged out' }
+    #     else
+    #       render json: { error: 'Invalid token' }, status: :unauthorized
+    #     end
+    #   else
+    #     render json: { error: 'Token not found' }, status: :bad_request
+    #   end
+    # end
     
     # def logout
     #   token = params[:token]
@@ -70,7 +84,8 @@ class SessionsController < ApplicationController
     #       #redirect '/login'
     #       end
     # end
-  
+
+    
     private
   
     def user_params

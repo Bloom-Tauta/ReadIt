@@ -17,10 +17,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_132613) do
     t.string "genre"
     t.integer "rating"
     t.integer "user_id", null: false
-    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -47,7 +45,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_132613) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users"
   add_foreign_key "reviews", "articles"
   add_foreign_key "reviews", "users"

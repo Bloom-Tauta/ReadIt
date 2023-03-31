@@ -39,7 +39,7 @@ function NewArticle() {
     genre: '',
     rating: '',
     img_url: '',
-    user_id: '',
+    //user_id: '',
     category_id: ''
   });
 
