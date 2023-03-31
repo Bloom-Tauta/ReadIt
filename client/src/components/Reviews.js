@@ -13,6 +13,7 @@ function Reviews() {
         setFilteredArticles(data);
       });
   }, []);
+    
   return (
     <div>
       
