@@ -9,6 +9,7 @@ import ArticleDetails from './components/ArticleDetails';
 import Footer from './components/Footer';
 import NewArticle from './components/NewArticle';
 import EditArticle from './components/EditArticle'; 
+import Review from './components/Review';
 
 import LogOut from './components/LogOut';
 
@@ -27,10 +28,11 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<SignUp />} />
           <Route path='/articles/:id' element={< ArticleDetails />} />
+          
           <Route path='/article/:id/edit' element={<EditArticle />} />
           <Route path="/new-article" element={<NewArticle />} />
         </Routes> 
-
+          {/* <Review/> */}
         <Footer/>
            
       </div>

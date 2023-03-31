@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate} from 'react-router-dom';
 
 
+
 function ArticleDetails() {
   const { id } = useParams();
   const [article, setArticle] = useState({
@@ -76,7 +77,7 @@ function ArticleDetails() {
         <img src={article.img_url} alt={article.name} />
         <p>Rating: {article.rating}</p>
         <button onClick={() => handleDelete(article.id)}>Delete</button>
-              <button onClick={() => navigate(`/article/${article.id}/edit`)}>Edit</button>
+        <button onClick={() => navigate(`/article/${article.id}/edit`)}>Edit</button>
       </div>
     </div>
   )

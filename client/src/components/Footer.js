@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaFacebookF, FaTwitter, FaInstagram, FaGithub, FaRegCopyright} from "react-icons/fa"
-import footer from "./footer.css"
+import "./footer.css"
 
 const Footer=()=>{
   // bg--600 text-green min-h-[30vh] pt-7
@@ -17,7 +17,7 @@ const Footer=()=>{
           <FaInstagram size={25} className="hover:text-orange hover:cursor-pointer"/>
           <div className="footer_anchor">
             <FaGithub size={25} className="hover:text-orange hover:cursor-pointer"/>
-            <a url={"https://github.com/Bloom-Tauta/ReadIt"}/>
+            <link url={"https://github.com/Bloom-Tauta/ReadIt"}/>
           </div>
        </div>
        <div className='copyright_bg p-4 flex items-center justify-center'>
