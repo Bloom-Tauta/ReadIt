@@ -2,22 +2,39 @@ import React, {useEffect,useState} from 'react';
 import Article from './Article';
 import Search from '../components/Search';
 import './home.css'
+import { useNavigate } from 'react-router-dom';
 
 
-function Home() {
+function Home({user}) {
 
+    const [search,setSearch] = useState('')
     const [articles, setArticles] = useState([])
-    const [filtered_articles, setFilteredArticles] = useState([]) 
+    const navigate = useNavigate()
+
     useEffect(() => {
-        fetch('/articles')
+        if(sessionStorage.getItem('jwt')) {
+            fetch('/articles',{
+                method: 'GET',
+                headers: {
+                    "Authorization": `Bearer ${sessionStorage.getItem('jwt')}`
+                }
+            })
             .then(response => {
-                return response.json();
-            }).then(articles => {
-                setArticles(articles);
-                setFilteredArticles(articles);
-        })
+                    if (response.status === 200) {
+                        response.json().then(data => {
+                            setArticles(data)
+                        })
+                    }
+                    else {
+                        navigate("/login")
+                    }
+            })
+        } else {
+            navigate("/login")
+        }
     },[])
     
+    let filtered_articles = articles.filter(article => article.genre.toLowerCase().includes(search.toLowerCase()))
 
 
     return (
@@ -28,7 +45,7 @@ function Home() {
                     Discover, learn and educate <br /> let us share our expiriences and thoughts together!
                 </p>
             </div>
-            <Search /> 
+            <Search search={search} setSearch={setSearch} /> 
             <Article articles={filtered_articles} />
         </div>
     )
