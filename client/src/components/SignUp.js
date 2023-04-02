@@ -39,37 +39,34 @@ export default function Signup() {
   }
 
   return (
-    <div>
-      {created ? (
-        <Navigate to="/login" />
-      ) : (
-        <div>
-          <div className="please-log-in">
-            <p>{errorMessage}</p>
-          </div>
-          <br />
-          <form onSubmit={createUser}>
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <br />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <br />
-            <br />
-            <button type="submit">SubmitS</button>
-          </form>
-        </div>
-      )}
-      <br />
-      <br />
+<div className="container">
+  {created ? (
+    <Navigate to="/login" />
+  ) : (
+    <div className="form-wrap">
+      <div className="error-msg">
+        <p>{errorMessage}</p>
+      </div>
+      <form onSubmit={createUser}>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          className="input-field"
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          className="input-field"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit" className="submit-btn">Submit</button>
+      </form>
     </div>
+  )}
+</div>
+
   );
 }

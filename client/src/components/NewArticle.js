@@ -145,6 +145,8 @@
 //     export default NewArticle;
 
 import React, { useState, useEffect } from 'react';
+import './newarticle.css'
+
 
 function NewArticle() {
   const [categories, setCategories] = useState([]);
@@ -232,79 +234,86 @@ function NewArticle() {
       });
   };
   return (
-    <div>
-    <h1>New Article</h1>
-    <form onSubmit={handleSubmit}>
-    <div>
-    <label htmlFor="name">Name:</label>
-    <input
-             type="text"
-             id="name"
-             name="name"
-             value={article.name}
-             onChange={handleChange}
-           />
+<div className="article-form-container">
+  <h1>New Article</h1>
+  <form onSubmit={handleSubmit} className="article-form">
+    <div className="form-group">
+      <label htmlFor="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value={article.name}
+        onChange={handleChange}
+        className="form-control"
+      />
     </div>
-    <div>
-    <label htmlFor="genre">Genre:</label>
-    <input
-             type="text"
-             id="genre"
-             name="genre"
-             value={article.genre}
-             onChange={handleChange}
-           />
+    <div className="form-group">
+      <label htmlFor="genre">Genre:</label>
+      <input
+        type="text"
+        id="genre"
+        name="genre"
+        value={article.genre}
+        onChange={handleChange}
+        className="form-control"
+      />
     </div>
-    <div>
-    <label htmlFor="rating">Rating:</label>
-    <input
-             type="number"
-             id="rating"
-             name="rating"
-             value={article.rating}
-             onChange={handleChange}
-           />
+    <div className="form-group">
+      <label htmlFor="rating">Rating:</label>
+      <input
+        type="number"
+        id="rating"
+        name="rating"
+        value={article.rating}
+        onChange={handleChange}
+        className="form-control"
+      />
     </div>
-    <div>
-    <label htmlFor="img_url">Image URL:</label>
-    <input
-             type="text"
-             id="img_url"
-             name="img_url"
-             value={article.img_url}
-             onChange={handleChange}
-           />
+    <div className="form-group">
+      <label htmlFor="img_url">Image URL:</label>
+      <input
+        type="text"
+        id="img_url"
+        name="img_url"
+        value={article.img_url}
+        onChange={handleChange}
+        className="form-control"
+      />
     </div>
-    <div>
-    <label htmlFor="user_id">Username:</label>
-    <input
-    type="text"
-    id="user_id"
-    name="user_id"
-    value={currentUser?.username || ""}
-    onChange={handleChange}
-    disabled
-    />
+    <div className="form-group">
+      <label htmlFor="user_id">Username:</label>
+      <input
+        type="text"
+        id="user_id"
+        name="user_id"
+        value={currentUser?.username || ""}
+        onChange={handleChange}
+        disabled
+        className="form-control"
+      />
     </div>
-    <div>
-    <label htmlFor="category_id">Category</label>
-    <select
-             id="category_id"
-             name="category_id"
-             value={article.category_id}
-             onChange={handleChange}
-           >
-    <option value="">--Select a category--</option>
-    {categories.map(category => (
-    <option key={category.id} value={category.id}>
-    {category.content}
-    </option>
-    ))}
-    </select>
+    <div className="form-group">
+      <label htmlFor="category_id">Category</label>
+      <select
+        id="category_id"
+        name="category_id"
+        value={article.category_id}
+        onChange={handleChange}
+        className="form-control"
+      >
+        <option value="">--Select a category--</option>
+        {categories.map(category => (
+          <option key={category.id} value={category.id}>
+            {category.content}
+          </option>
+        ))}
+      </select>
     </div>
-    <button type="submit">Create Article</button>
-    </form>
-    </div>
+    <button type="submit" className="btn btn-primary">Create Article</button>
+  </form>
+</div>
+
     );
     }
     

@@ -48,33 +48,31 @@ function App() {
   }, []);
 
   return (
-    <div className="AppContainer">
-      <NavBar />
-      {loggedIn ? (
-        <h1 className="greeting-text">Welcome back {user.username}!</h1>
-      ) : (
-        <div className="please-log-in">
-          <h3>Please log in !</h3>
-        </div>
-      )}
-        {loggedIn ? (
-          <span>
-            <br />
-            <button onClick={logOut}>Log Out</button>
-          </span>
-        ) : null}
-        <br />
-        <Routes>
-          <Route path='/' exact element={<Home/>}/>
-          <Route path='/about' element={<About/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/articles/:id' element={< ArticleDetails />} />
-          <Route path='/article/:id/edit' element={<EditArticle />} />
-        <Route path="/new-article" element={<NewArticle />} />
-        
-        </Routes> 
+<div className="AppContainer">
+  <NavBar />
+  {loggedIn ? (
+    <h1 className="greeting-text">Welcome back {user.username}!</h1>
+  ) : (
+    <div className="please-log-in">
+      <h3>Please log in!</h3>
     </div>
+  )}
+  {loggedIn ? (
+    <div className="logout-container">
+      <button onClick={logOut} className="btn btn-secondary">Log Out</button>
+    </div>
+  ) : null}
+  <Routes>
+    <Route path='/' exact element={<Home/>}/>
+    <Route path='/about' element={<About/>}/>
+    <Route path='/login' element={<Login/>}/>
+    <Route path='/signup' element={<SignUp />} />
+    <Route path='/articles/:id' element={< ArticleDetails />} />
+    <Route path='/article/:id/edit' element={<EditArticle />} />
+    <Route path="/new-article" element={<NewArticle />} />
+  </Routes> 
+</div>
+
 
   );
 }

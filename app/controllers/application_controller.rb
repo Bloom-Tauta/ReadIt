@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
     # before_action :authorized
-
+    
     wrap_parameters format: []
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid_response
@@ -40,6 +40,5 @@ class ApplicationController < ActionController::API
     def authorized
       render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
     end
-
 
 end

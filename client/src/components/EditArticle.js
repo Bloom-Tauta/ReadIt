@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import './editarticle.css';
+
 
 function EditArticle() {
   const { id } = useParams();
@@ -50,52 +52,53 @@ function EditArticle() {
   }
 
   return (
-    <div>
-      <h1>Edit Article</h1>
-      <form onSubmit={handleUpdate}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={article.name}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="genre">Genre</label>
-          <input
-            type="text"
-            id="genre"
-            name="genre"
-            value={article.genre}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="img_url">Image URL</label>
-          <input
-            type="text"
-            id="img_url"
-            name="img_url"
-            value={article.img_url}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="rating">Rating</label>
-          <input
-            type="text"
-            id="rating"
-            name="rating"
-            value={article.rating}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Save</button>
-      </form>
+<div class="edit-article">
+  <h1>Edit Article</h1>
+  <form onSubmit={handleUpdate}>
+    <div class="form-group">
+      <label htmlFor="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value={article.name}
+        onChange={handleChange}
+      />
     </div>
+    <div class="form-group">
+      <label htmlFor="genre">Genre</label>
+      <input
+        type="text"
+        id="genre"
+        name="genre"
+        value={article.genre}
+        onChange={handleChange}
+      />
+    </div>
+    <div class="form-group">
+      <label htmlFor="img_url">Image URL</label>
+      <input
+        type="text"
+        id="img_url"
+        name="img_url"
+        value={article.img_url}
+        onChange={handleChange}
+      />
+    </div>
+    <div class="form-group">
+      <label htmlFor="rating">Rating</label>
+      <input
+        type="text"
+        id="rating"
+        name="rating"
+        value={article.rating}
+        onChange={handleChange}
+      />
+    </div>
+    <button class="submit-button" type="submit">Save</button>
+  </form>
+</div>
+
   );
 }
 

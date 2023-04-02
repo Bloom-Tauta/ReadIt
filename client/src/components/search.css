@@ -1,0 +1,21 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .search-input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 500px;
+  }
+  

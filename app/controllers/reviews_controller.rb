@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show update destroy ]
+  # before_action :authorized, except: [:index, :show]
+
 
   # GET /reviews
   def index
