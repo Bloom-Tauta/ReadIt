@@ -258,6 +258,7 @@ function NewArticle() {
         onChange={handleChange}
         className="form-control"
       />
+
     </div>
     <div className="form-group">
       <label htmlFor="rating">Rating:</label>

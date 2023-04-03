@@ -17,5 +17,8 @@
     border: 1px solid #ccc;
     width: 100%;
     max-width: 500px;
-  }
-  
+  } 
+
+.searchBar_main {
+    color: black;
+}

@@ -7,8 +7,11 @@ import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import ArticleDetails from './components/ArticleDetails';
-import EditArticle from './components/EditArticle';
+import Footer from './components/Footer';
 import NewArticle from './components/NewArticle';
+import EditArticle from './components/EditArticle';
+
+
 import LogOut from './components/LogOut';
 
 function App() {
@@ -48,8 +51,8 @@ function App() {
   }, []);
 
   return (
-<div className="AppContainer">
-  <NavBar />
+
+    <div className="AppContainer">
   {loggedIn ? (
     <h1 className="greeting-text">Welcome back {user.username}!</h1>
   ) : (
@@ -62,17 +65,20 @@ function App() {
       <button onClick={logOut} className="btn btn-secondary">Log Out</button>
     </div>
   ) : null}
-  <Routes>
-    <Route path='/' exact element={<Home/>}/>
-    <Route path='/about' element={<About/>}/>
-    <Route path='/login' element={<Login/>}/>
-    <Route path='/signup' element={<SignUp />} />
-    <Route path='/articles/:id' element={< ArticleDetails />} />
-    <Route path='/article/:id/edit' element={<EditArticle />} />
-    <Route path="/new-article" element={<NewArticle />} />
-  </Routes> 
-</div>
-
+      <div>
+        <NavBar />
+        <Routes>
+          <Route path='/' exact element={<Home/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='/articles/:id' element={< ArticleDetails />} />
+          <Route path='/article/:id/edit' element={<EditArticle />} />
+          <Route path="/new-article" element={<NewArticle />} />
+        </Routes> 
+           <Footer/>
+      </div>
+    </div>
 
   );
 }

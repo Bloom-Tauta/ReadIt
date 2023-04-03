@@ -65,9 +65,7 @@ function Article({ articles }) {
                     <p>Category {item.category.content}</p>
                   </small>
                 </div>
-                <button className="article-button">
-                  <Link to={`/articles/${item.id}`}>see more...</Link>
-                </button>
+                <button className="article-button"><Link to={`/articles/${item.id}`}>see more...</Link></button>
               </div>
             );
           })}

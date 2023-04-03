@@ -28,6 +28,8 @@ function Search({ articles, setFilteredArticles }) {
         value={searchTerm}
         onChange={handleSearchTermChange}
       />
+
+
     </div>
   );
 }
