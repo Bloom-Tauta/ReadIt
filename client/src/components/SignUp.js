@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import './signup.css'
 
 export default function Signup() {
   const [username, setUsername] = useState('');
@@ -43,7 +44,8 @@ export default function Signup() {
   {created ? (
     <Navigate to="/login" />
   ) : (
-    <div className="form-wrap">
+          <div className="form-wrap">
+            <h1>SignUp</h1>
       <div className="error-msg">
         <p>{errorMessage}</p>
       </div>

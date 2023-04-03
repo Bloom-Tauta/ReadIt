@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :update, :destroy]
-  # before_action :authorized, except: [:index]
+  # before_action :authorized
 
    
   def index
@@ -16,20 +16,10 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # def create
-  #   @article = Article.new(article_params)
-
-  #   if @article.save
-  #     render json: @article, status: :created, location: @article
-  #   else
-  #     render json: @article.errors, status: :unprocessable_entity
-  #   end
-  # end
-
   def create
-    @article = Article.create(article_params)
+    @article = Article.new(article_params)
 
-    if @article
+    if @article.save
       render json: @article, status: :created, location: @article
     else
       render json: @article.errors, status: :unprocessable_entity

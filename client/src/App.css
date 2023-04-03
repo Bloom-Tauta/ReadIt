@@ -8,11 +8,13 @@
 
 body{
     font-family: 'Montserrat', sans-serif;
+    background-color: #f3f3f3;
 }
 
 button, input{
     font-family: 'Montserrat', sans-serif;
 }
+
 
 .maincontainer {
     overflow-y: scroll;

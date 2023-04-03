@@ -144,9 +144,12 @@
     
 //     export default NewArticle;
 
+
+
+
 import React, { useState, useEffect } from 'react';
 import './newarticle.css'
-
+import { useNavigate } from 'react-router-dom';
 
 function NewArticle() {
   const [categories, setCategories] = useState([]);
@@ -203,7 +206,9 @@ function NewArticle() {
       [name]: value
     }));
   };
-  
+
+  const navigate = useNavigate();
+
   const handleSubmit = event => {
     event.preventDefault();
 
@@ -228,17 +233,19 @@ function NewArticle() {
       })
       .then(data => {
         addNewArticle(data);
+        navigate(`/articles`); // Redirect to the newly created article page
       })
       .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
       });
   };
   return (
+
 <div className="article-form-container">
   <h1>New Article</h1>
   <form onSubmit={handleSubmit} className="article-form">
     <div className="form-group">
-      <label htmlFor="name">Name:</label>
+      <label htmlFor="name">Title:</label>
       <input
         type="text"
         id="name"
@@ -249,7 +256,7 @@ function NewArticle() {
       />
     </div>
     <div className="form-group">
-      <label htmlFor="genre">Genre:</label>
+      <label htmlFor="genre">Editorial:</label>
       <input
         type="text"
         id="genre"

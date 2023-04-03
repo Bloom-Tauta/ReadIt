@@ -10,8 +10,6 @@ import ArticleDetails from './components/ArticleDetails';
 import Footer from './components/Footer';
 import NewArticle from './components/NewArticle';
 import EditArticle from './components/EditArticle';
-
-
 import LogOut from './components/LogOut';
 
 function App() {
@@ -53,18 +51,13 @@ function App() {
   return (
 
     <div className="AppContainer">
-  {loggedIn ? (
+  {/* {loggedIn ? (
     <h1 className="greeting-text">Welcome back {user.username}!</h1>
   ) : (
     <div className="please-log-in">
       <h3>Please log in!</h3>
     </div>
-  )}
-  {loggedIn ? (
-    <div className="logout-container">
-      <button onClick={logOut} className="btn btn-secondary">Log Out</button>
-    </div>
-  ) : null}
+  )} */}
       <div>
         <NavBar />
         <Routes>
@@ -72,6 +65,7 @@ function App() {
           <Route path='/about' element={<About/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<SignUp />} />
+          <Route path='/logout' element={<LogOut />} />
           <Route path='/articles/:id' element={< ArticleDetails />} />
           <Route path='/article/:id/edit' element={<EditArticle />} />
           <Route path="/new-article" element={<NewArticle />} />

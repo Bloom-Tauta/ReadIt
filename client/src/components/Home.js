@@ -26,7 +26,6 @@ function Home() {
                     Discover, learn and be educated <br /> Let us share our experiences and thoughts together!
                 </p>
             </div>
-            <Search /> 
             <Article articles={filtered_articles} />
         </div>
     )

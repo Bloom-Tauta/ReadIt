@@ -25,33 +25,35 @@ export default function Login({ setCurrentUser }) {
       .then((response) => {
         localStorage.token = response.jwt;
         setCurrentUser(response.user);
-      });
+      })
+      .catch((error) => console.error('Error logging in:', error));
   }
 
   return (
-<div className="login-form">
-  <form onSubmit={handleLogin}>
-    <div className="form-group">
-      <input
-        type="text"
-        name="username"
-        placeholder="Username"
-        className="form-control"
-        onChange={(e) => setUsername(e.target.value)}
-      />
-    </div>
-    <div className="form-group">
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        className="form-control"
-        onChange={(e) => setPassword(e.target.value)}
-      />
+    <div className="login-form">
+      <form onSubmit={handleLogin}>
+        <div className="form-group">
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            className="form-control"
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
-          <button type="submit" className="btn-submit">Login</button>       
-  </form>
-</div>
-
+        <div className="form-group">
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            className="form-control"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="btn-submit">
+          Login
+        </button>
+      </form>
+    </div>
   );
 }

@@ -6,10 +6,9 @@ function NavBar(){
            <NavLink to="/">Home</NavLink>
            <NavLink to="/about">About</NavLink>
            <NavLink to="/logIn">LogIn</NavLink>
-           <NavLink to="/signUp">SignUp</NavLink>
-            <NavLink to="/new-article">++Article</NavLink>
-
-           
+            <NavLink to="/signUp">SignUp</NavLink>
+            <NavLink to="/logout">Logout</NavLink>
+            <NavLink to="/new-article">++Article</NavLink>           
         </div>
     )
 }
