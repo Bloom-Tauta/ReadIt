@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     # app/controllers/authentication_controller.rb
+    skip_before_action :authorized, only: [:login, :signup]
     def login
       @user = User.find_by(username: params[:username])
   
@@ -22,14 +23,19 @@ class SessionsController < ApplicationController
       end
     end
 
+<<<<<<< HEAD
     def logout
       
+=======
+    def me
+      render json: @user
+>>>>>>> 587cefcca00ef7dda7294c3fd300ecf6a6e8e49f
     end
   
     private
   
     def user_params
-      params.permit(:username, :password)
+      params.permit(:username, :password, :password_confirmation)
     end
   
     def encode_token(payload)
