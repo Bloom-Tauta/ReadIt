@@ -41,8 +41,8 @@ class UsersController < ApplicationController
     head :no_content
   end
 
-  private
 
+  private
   def set_user
     @user = User.find(params[:id])
   end
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password)
   end
-
+  
   def encode_token(payload)
     JWT.encode(payload, Rails.application.secrets.secret_key_base)
   end

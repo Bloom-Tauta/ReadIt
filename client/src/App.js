@@ -51,13 +51,6 @@ function App() {
   return (
 
     <div className="AppContainer">
-  {/* {loggedIn ? (
-    <h1 className="greeting-text">Welcome back {user.username}!</h1>
-  ) : (
-    <div className="please-log-in">
-      <h3>Please log in!</h3>
-    </div>
-  )} */}
       <div>
         <NavBar />
         <Routes>

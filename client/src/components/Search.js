@@ -17,7 +17,6 @@
 //     setFilteredArticles(filtered);
 //   };
   
-
 //   return (
 //     <div className="search-container">
 //       <label htmlFor="genre-search" className="search-label">Search by genre:</label>

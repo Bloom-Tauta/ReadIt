@@ -145,8 +145,6 @@
 //     export default NewArticle;
 
 
-
-
 import React, { useState, useEffect } from 'react';
 import './newarticle.css'
 import { useNavigate } from 'react-router-dom';
