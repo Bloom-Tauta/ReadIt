@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Defines the root path route ("/")
+  root "articles#index"
+
   resources :categories
   resources :reviews
   resources :articles
@@ -8,8 +12,5 @@ Rails.application.routes.draw do
   post '/auto_login', to: 'auth#auto_login'
   get '/logged_in', to: 'application#logged_in?'
   delete '/logout', to: 'sessions#logout'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
