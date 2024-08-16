@@ -4,8 +4,8 @@ class ArticlesController < ApplicationController
 
 
   def index
-    @articles = Article.all.includes(:user).order(created_at: :desc)
-    render json: @articles, serializer: :ArticleSerializer
+    @articles = Article.all
+    render json: @articles, each_serializer: ArticleSerializer, status: :ok
   end
 
   def show
