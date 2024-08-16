@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all.includes(:user).order(created_at: :desc)
-    render json: @articles, serializer: :ArticleListSerializer
+    render json: @articles, serializer: :ArticleSerializer
   end
 
   def show
